@@ -52,7 +52,10 @@ namespace Calc
         static double GetValue()
         {
             double i;
-            Double.TryParse(Console.ReadLine(), out i);
+            while(!Double.TryParse(Console.ReadLine(), out i))
+            {
+                Console.WriteLine("Error: Not a number. Please input a number.");
+            }
             return i;
         }
         public static double Addition(double a, double b)
