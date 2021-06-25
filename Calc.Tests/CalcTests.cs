@@ -66,5 +66,25 @@ namespace Calc.Tests
 
             Assert.Equal(expected, result);
         }
+
+        [Fact]
+        public void AdditionTest2()
+        {
+            double[,] a = new double[4, 2] { { 2, 3 }, { 4, 7 }, { -8, 11 }, { -8, -11 } };
+            double[] expected = new double[4] { 5, 11, 3, -19 };
+            double[] result = Program.Addition(a);
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void SubtractionTest2()
+        {
+            double[,] a = new double[4, 2] { { 2, 3 }, { 7, 4 }, { -8, 11 }, { -8, -11 } };
+            double[] expected = new double[4] { -1, 3, -19, 3 };
+            double[] result = Program.Subtraction(a);
+
+            Assert.Equal(expected, result);
+        }
     }
 }

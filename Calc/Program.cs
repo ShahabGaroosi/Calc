@@ -51,7 +51,7 @@ namespace Calc
         }
         static double GetValue()
         {
-            double i = 0;
+            double i;
             Double.TryParse(Console.ReadLine(), out i);
             return i;
         }
@@ -73,19 +73,19 @@ namespace Calc
         }
         public static double[] Addition(double[,] a)
         {
-            double[] b = new double[a.GetLength(1)];
-            for (int i = 0; i < a.GetLength(1); i++)
-            {
-                b[i] = a[0, i] + a[1, i];
-            }
-            return b;
+            return ArrayArithmetic(Addition, a);
         }
         public static double[] Subtraction(double[,] a)
         {
-            double[] b = new double[a.GetLength(1)];
-            for (int i = 0; i < a.GetLength(1); i++)
+            return ArrayArithmetic(Subtraction, a);
+        }
+
+        static double[] ArrayArithmetic(Func<double, double, double> func, double[,] a)
+        {
+            double[] b = new double[a.GetLength(0)];
+            for (int i = 0; i < a.GetLength(0); i++)
             {
-                b[i] = a[0, i] - a[1, i];
+                b[i] = func(a[i, 0], a[i, 1]);
             }
             return b;
         }
